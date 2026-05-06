@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyeux Anniversaire Amandine 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:#08080f;}
+body{color:#f5f0e8;font-family:'Lato',sans-serif;min-height:100vh;overflow-x:hidden;}
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite alternate;}
+@keyframes twinkle{0%{opacity:.15}100%{opacity:.9}}
+.screen{position:relative;z-index:1;min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem 5rem;text-align:center;}
+.screen.active{display:flex;animation:fadeUp .6s ease forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.gold-line{width:48px;height:2px;background:linear-gradient(90deg,transparent,#c9963a,transparent);margin:1rem auto;}
+.heart-wrap{margin-bottom:1.5rem;animation:hb 2.2s ease-in-out infinite;}
+@keyframes hb{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.cover-name{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,9vw,4rem);color:#e8c87a;line-height:1.15;}
+.cover-name em{font-style:italic;}
+.cover-date{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9a8a6a;margin:.6rem 0 2rem;}
+.btn-gold{background:linear-gradient(135deg,#b8790a,#e8c87a);color:#08080f;border:none;padding:1rem 2.8rem;border-radius:50px;font-size:.95rem;font-weight:700;letter-spacing:.08em;cursor:pointer;text-transform:uppercase;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 28px rgba(201,150,58,.4);}
+.btn-gold:hover{transform:scale(1.06);box-shadow:0 8px 36px rgba(201,150,58,.55);}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(201,150,58,.22);border-radius:20px;padding:2.5rem 2rem;max-width:560px;width:100%;position:relative;overflow:hidden;text-align:left;}
+.card::before{content:'"';position:absolute;top:-12px;left:16px;font-family:'Playfair Display',serif;font-size:140px;color:rgba(201,150,58,.07);line-height:1;pointer-events:none;}
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:#e8c87a;text-align:center;margin-bottom:1rem;}
+.letter-body{font-size:1rem;line-height:2;color:#d0c8b8;}
+.letter-body strong{color:#e8c87a;font-weight:400;font-style:italic;}
+.letter-sig{margin-top:1.8rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:#e8c87a;text-align:right;}
+#s3{align-items:flex-start;padding-top:3rem;}
+.tl-wrap{position:relative;max-width:500px;width:100%;padding-left:2.2rem;}
+.tl-wrap::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1.5px;background:linear-gradient(to bottom,#c9963a 70%,transparent);}
+.tl-item{position:relative;margin-bottom:2.2rem;opacity:0;transform:translateX(18px);transition:all .5s ease;}
+.tl-item.vis{opacity:1;transform:translateX(0);}
+.tl-dot{position:absolute;left:-2.5rem;top:5px;width:13px;height:13px;border-radius:50%;background:#c9963a;border:2px solid #08080f;box-shadow:0 0 10px rgba(201,150,58,.7);}
+.tl-year{font-size:.72rem;color:#c9963a;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.25rem;}
+.tl-text{font-size:.95rem;color:#c8c0b0;line-height:1.7;}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:480px;width:100%;margin-bottom:1.5rem;}
+.pitem{background:rgba(255,255,255,.04);border:1px solid rgba(201,150,58,.18);border-radius:14px;padding:1.2rem 1rem;text-align:center;transition:border-color .3s,transform .2s;}
+.pitem:hover{border-color:rgba(201,150,58,.65);transform:translateY(-3px);}
+.picon{font-size:26px;margin-bottom:.45rem;display:block;}
+.ptext{font-size:.82rem;color:#b8ad98;line-height:1.5;}
+.final-name{font-family:'Playfair Display',serif;font-size:clamp(2rem,7vw,3.2rem);color:#e8c87a;line-height:1.3;margin-bottom:.5rem;}
+.final-sub{font-size:1rem;color:#b0a890;line-height:1.9;margin-bottom:1.5rem;}
+.distance-badge{display:inline-block;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.3);border-radius:50px;padding:.5rem 1.4rem;font-size:.82rem;color:#c9963a;letter-spacing:.08em;margin-bottom:1.8rem;}
+.nav{display:flex;gap:.85rem;margin-top:1.8rem;flex-wrap:wrap;justify-content:center;}
+.btn-ghost{background:rgba(201,150,58,.1);color:#e8c87a;border:1px solid rgba(201,150,58,.35);padding:.7rem 1.8rem;border-radius:50px;font-size:.88rem;cursor:pointer;transition:all .2s;}
+.btn-ghost:hover{background:rgba(201,150,58,.25);}
+.dots{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(201,150,58,.25);transition:all .3s;}
+.dot.active{background:#e8c87a;transform:scale(1.35);}
+.cp{position:fixed;width:8px;height:8px;pointer-events:none;z-index:999;animation:fall linear forwards;border-radius:2px;}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.map-visual{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem 0;}
+.city-pin{text-align:center;}
+.city-name{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#9a8a6a;margin-top:.3rem;}
+.connector{display:flex;align-items:center;gap:4px;color:rgba(201,150,58,.5);font-size:.85rem;}
+.pulse-dot{width:10px;height:10px;border-radius:50%;background:#c9963a;margin:0 auto;animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,150,58,.5)}50%{box-shadow:0 0 0 8px rgba(201,150,58,0)}}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<!-- S1: Cover -->
+<div class="screen active" id="s1">
+  <div class="heart-wrap">
+    <svg width="72" height="65" viewBox="0 0 80 72" fill="none">
+      <path d="M40 68C40 68 4 44 4 22C4 11 12 4 22 4C29 4 36 8 40 14C44 8 51 4 58 4C68 4 76 11 76 22C76 44 40 68 40 68Z" fill="#c9963a" opacity=".9"/>
+      <path d="M40 68C40 68 4 44 4 22C4 11 12 4 22 4C29 4 36 8 40 14C44 8 51 4 58 4C68 4 76 11 76 22C76 44 40 68 40 68Z" stroke="#e8c87a" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+  <div class="cover-name">Bonne Anniversaire<br><em>Amandine</em></div>
+  <div class="gold-line"></div>
+  <div class="cover-date">Notre histoire · Notre fils · Notre vie</div>
+  <div class="map-visual">
+    <div class="city-pin"><div class="pulse-dot"></div><div class="city-name">Kigali</div></div>
+    <div class="connector">— ✈ ✈ —</div>
+    <div class="city-pin"><div class="pulse-dot"></div><div class="city-name">Canada</div></div>
+  </div>
+  <button class="btn-gold" onclick="goTo(2)">Ouvrir mon cadeau ✨</button>
+</div>
+
+<!-- S2: Letter -->
+<div class="screen" id="s2">
+  <div class="card">
+    <div class="section-title">Ma chère Amandine,</div>
+    <div class="letter-body">
+      Ce soir, depuis Kigali, je pense à toi au Canada. Et je mesure le chemin parcouru depuis ce quartier des <strong>Acacias à Yaoundé</strong> — deux étudiants, un projet qui s'appelait Snap ID, et quelque chose d'impossible à nommer qui naissait entre nous.<br><br>
+      Tu n'es peut-être pas ma première rencontre. Mais tu es <strong>la première à qui j'ai vraiment voulu appartenir</strong>. Et le fait que tu te sois donnée à moi, entièrement, pour la première fois — je ne l'ai jamais oublié. Je ne l'oublierai jamais. C'était le début de tout.<br><br>
+      Ce que j'aime le plus en toi, Amandine, c'est ta voix. <strong>Ta voix m'apaise comme rien d'autre au monde.</strong> Il m'est arrivé, dans les moments difficiles de la distance, de t'appeler non pas pour parler — juste pour t'entendre. Juste pour que le son de ta voix me rappelle que tout allait bien.<br><br>
+      Tu m'as donné <strong>Warren</strong>. Et chaque jour qu'il grandit, je vois ce que tu es vraiment — une femme extraordinaire, une mère d'une douceur rare, une force silencieuse.<br><br>
+      Aujourd'hui je veux que tu saches une chose, sans ambiguïté :<br><strong>Tu as trouvé l'homme de ta vie. Et il t'aime.</strong>
+    </div>
+    <div class="letter-sig">— Franck, depuis Kigali 🌍</div>
+  </div>
+  <div class="nav">
+    <button class="btn-ghost" onclick="goTo(1)">← Retour</button>
+    <button class="btn-gold" onclick="goTo(3)" style="padding:.75rem 2rem;font-size:.88rem;">Notre histoire →</button>
+  </div>
+</div>
+
+<!-- S3: Timeline -->
+<div class="screen" id="s3" style="align-items:flex-start;padding-top:3rem;padding-bottom:5rem;">
+  <div class="section-title" style="width:100%;text-align:center;margin-bottom:1.8rem;">Notre histoire</div>
+  <div class="tl-wrap" id="tl">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2015 — Yaoundé, Quartier les Acacias</div>
+      <div class="tl-text">Deux étudiants. Un projet nommé Snap ID. Une agence Orange. Et quelque chose d'impossible à nommer qui commençait à exister entre eux.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Le premier don</div>
+      <div class="tl-text">Elle s'est donnée à lui pour la première fois. Pas par hasard — par choix. Ce choix-là, il l'a porté depuis, comme une confiance sacrée.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">La voix qui apaise</div>
+      <div class="tl-text">Même séparés par des kilomètres, il l'appelait parfois juste pour entendre le son de sa voix. Aucun mot nécessaire. Juste elle — et tout allait bien.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Warren</div>
+      <div class="tl-text">Leur fils. Leur œuvre commune. Un petit garçon qui grandit avec sa douceur à elle — et la fierté de lui.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Kigali ↔ Canada</div>
+      <div class="tl-text">Deux continents. Une seule histoire. La distance prouve une chose : ce qu'ils ont ne se mesure pas en kilomètres.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Aujourd'hui — son anniversaire</div>
+      <div class="tl-text">11 ans plus tard, il lui dit : tu es l'amour de ma vie. Pas parce que c'est beau à dire — parce que c'est vrai.</div>
+    </div>
+  </div>
+  <div class="nav" style="width:100%;justify-content:center;">
+    <button class="btn-ghost" onclick="goTo(2)">← La lettre</button>
+    <button class="btn-gold" onclick="goTo(4)" style="padding:.75rem 2rem;font-size:.88rem;">Warren →</button>
+  </div>
+</div>
+
+<!-- S4: Warren -->
+<div class="screen" id="s4">
+  <div class="card" style="text-align:center;">
+    <div style="font-size:60px;margin-bottom:1rem;">👦🏾</div>
+    <div class="section-title">Warren</div>
+    <div class="gold-line"></div>
+    <div class="letter-body" style="text-align:center;">
+      Il a 6 ans et il ne sait pas encore à quel point sa mère est extraordinaire.<br><br>
+      Mais il le sentira. Parce que chaque jour, <strong>tu lui apprends l'amour</strong> par ce que tu es — ta douceur, ta présence, ta force tranquille.<br><br>
+      Warren est notre lien éternel.<br>
+      Ce que nous avons créé ensemble de plus beau.<br><br>
+      <strong>Merci d'être sa maman.</strong>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="btn-ghost" onclick="goTo(3)">← Notre histoire</button>
+    <button class="btn-gold" onclick="goTo(5)" style="padding:.75rem 2rem;font-size:.88rem;">Mes promesses →</button>
+  </div>
+</div>
+
+<!-- S5: Promises -->
+<div class="screen" id="s5">
+  <div class="section-title">Ce que je te promets</div>
+  <div class="gold-line"></div>
+  <div class="pgrid">
+    <div class="pitem"><span class="picon">✈️</span><div class="ptext">Réduire la distance entre Kigali et le Canada. Un jour, bientôt.</div></div>
+    <div class="pitem"><span class="picon">🎙️</span><div class="ptext">Continuer d'appeler — parfois juste pour entendre ta voix.</div></div>
+    <div class="pitem"><span class="picon">👦🏾</span><div class="ptext">Être le père que Warren mérite — pour toi aussi.</div></div>
+    <div class="pitem"><span class="picon">🌍</span><div class="ptext">Construire un avenir digne de ce que tu as sacrifié.</div></div>
+    <div class="pitem"><span class="picon">🕯️</span><div class="ptext">Ne jamais oublier les Acacias, Snap ID, et le début de tout.</div></div>
+    <div class="pitem"><span class="picon">❤️</span><div class="ptext">T'aimer encore mieux dans les 11 prochaines années.</div></div>
+  </div>
+  <div class="nav">
+    <button class="btn-ghost" onclick="goTo(4)">← Warren</button>
+    <button class="btn-gold" onclick="goTo(6);confetti()" style="padding:.75rem 2rem;font-size:.88rem;">Fin ✨</button>
+  </div>
+</div>
+
+<!-- S6: Final -->
+<div class="screen" id="s6">
+  <div class="heart-wrap" style="margin-bottom:1rem;">
+    <svg width="56" height="50" viewBox="0 0 80 72" fill="none">
+      <path d="M40 68C40 68 4 44 4 22C4 11 12 4 22 4C29 4 36 8 40 14C44 8 51 4 58 4C68 4 76 11 76 22C76 44 40 68 40 68Z" fill="#c9963a"/>
+    </svg>
+  </div>
+  <div class="final-name">Joyeux Anniversaire<br><em>Amandine</em> 🎂</div>
+  <div class="gold-line"></div>
+  <div class="distance-badge">Kigali → Canada &nbsp;·&nbsp; Warren &nbsp;·&nbsp; Toujours</div>
+  <div class="final-sub">
+    Depuis les Acacias de Yaoundé<br>
+    jusqu'à ce soir où deux continents nous séparent —<br>
+    <strong style="color:#e8c87a;">tu es et tu resteras l'amour de ma vie.</strong>
+  </div>
+  <div class="nav">
+    <button class="btn-ghost" onclick="goTo(1)">↺ Recommencer</button>
+    <button class="btn-gold" onclick="confetti()" style="padding:.75rem 2rem;font-size:.88rem;">Célébrer 🎉</button>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+let cur=1;const total=6;
+const starsEl=document.getElementById('stars');
+for(let i=0;i<90;i++){const s=document.createElement('div');s.className='star';const z=Math.random()*2.5+.5;s.style.cssText=`width:${z}px;height:${z}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*3}s`;starsEl.appendChild(s);}
+const dotsEl=document.getElementById('dots');
+for(let i=1;i<=total;i++){const d=document.createElement('div');d.className='dot'+(i===1?' active':'');d.id='dot'+i;dotsEl.appendChild(d);}
+function goTo(n){
+  document.getElementById('s'+cur).style.display='none';
+  document.getElementById('dot'+cur).classList.remove('active');
+  cur=n;
+  const el=document.getElementById('s'+cur);
+  el.style.display='flex';
+  el.classList.remove('active');
+  void el.offsetWidth;
+  el.classList.add('active');
+  document.getElementById('dot'+cur).classList.add('active');
+  window.scrollTo(0,0);
+  if(n===3){const items=document.querySelectorAll('.tl-item');items.forEach((it,i)=>setTimeout(()=>it.classList.add('vis'),i*220+100));}
+}
+function confetti(){
+  const cols=['#e8c87a','#c9963a','#fff','#f5d6a0','#b8860b','#fffacd','#ffd700'];
+  for(let i=0;i<70;i++){const c=document.createElement('div');c.className='cp';c.style.cssText=`left:${Math.random()*100}vw;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${1.5+Math.random()*2.5}s;animation-delay:${Math.random()*.6}s;top:-10px;transform:rotate(${Math.random()*360}deg);border-radius:${Math.random()>.5?'50%':'2px'};`;document.body.appendChild(c);setTimeout(()=>c.remove(),4500);}
+}
+</script>
+</body>
+</html>
